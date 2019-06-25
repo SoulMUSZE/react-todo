@@ -59,13 +59,17 @@ class App extends Component {
       <>
         <div className='title'> To Do List</div>
         < div className='box' >
+
           {this.state.todos.map((item, index) =>
 
-            <div><TodoItem key={item + '_' + index} id={item.id} task={item.task} done={item.done} handleClick={this.handleClick} /></div>
+            <div key={item.id}>
+              <TodoItem id={item.id} task={item.task} done={item.done} handleClick={this.handleClick} />
+            </div>
 
           )}
-          < TodoForm updateToDo={this.updateToDo}
-            deleteItem={this.deleteItem}/>
+
+          < TodoForm updateToDo={this.updateToDo} deleteItem={this.deleteItem} />
+
         </div >
       </>
     )
