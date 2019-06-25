@@ -2,8 +2,8 @@ import React from 'react'
 
 
 const TodoItem = ({ id, task, done, handleClick }) => {
-    //if done is true, return div
-
+    
+    //if task is not done, return div
     if (!done) {
         return (
         <div>
@@ -12,6 +12,7 @@ const TodoItem = ({ id, task, done, handleClick }) => {
         </div>
         );
     } else {
+        // return strikethrough when task is done
         return (
         <div>
             <strike className='strikecolor'>{id}.{task},{done}</strike>
@@ -19,8 +20,6 @@ const TodoItem = ({ id, task, done, handleClick }) => {
         </div>
         );
     }
-    //else return strick div
-
 }
 
 export default TodoItem

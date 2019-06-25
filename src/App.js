@@ -15,7 +15,6 @@ class App extends Component {
 
 
   updateToDo = (newTask) => {
-    //console.log(newTask)
     const toDoCopy = [...this.state.todos]
     let toDoLength = this.state.todos.length
     const taskObject = { id: toDoLength + 1, task: newTask, done: false }
@@ -54,13 +53,6 @@ class App extends Component {
     console.log(filteredToDoCopy)
   }
 
-  // deleteItem = (taskId) => {
-  //   const toDoCopy = [...this.state.todos]
-  //   // toDoCopy.pop()
-  //   const filteredToDoCopy = toDoCopy.filter(task => task.id !== taskId);
-  //   this.setState({ todos: filteredToDoCopy })
-  //   console.log(filteredToDoCopy)
-  // }
 
   render() {
     return (
