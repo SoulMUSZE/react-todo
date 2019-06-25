@@ -8,7 +8,7 @@ const TodoItem = ({ id, task, done, handleClick }) => {
         return (
         <div>
             <span>{id}.{task},{done}</span>
-            <input onClick={() => { handleClick(id) }} type="checkbox"></input>
+            <input value={done} onClick={() => { handleClick(id) }} type="checkbox"></input>
         </div>
         );
     } else {
@@ -16,7 +16,7 @@ const TodoItem = ({ id, task, done, handleClick }) => {
         return (
         <div>
             <strike className='strikecolor'>{id}.{task},{done}</strike>
-            <input onClick={() => { handleClick(id) }} type="checkbox"></input>
+            <input value={done} onClick={() => { handleClick(id) }} type="checkbox"></input>
         </div>
         );
     }
