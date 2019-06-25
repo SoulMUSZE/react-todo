@@ -5,19 +5,24 @@ import TodoForm from './TodoForm'
 // import { listenerCount } from 'events';
 
 
+let count = 3
+
 class App extends Component {
   state = {
     todos: [
       { id: 1, task: 'Walk the dog', done: false },
       { id: 2, task: 'Water the flower', done: false }
     ]
-  }
+  } 
 
-
-  updateToDo = (newTask) => {
+  updateToDo = newTask => {
     const toDoCopy = [...this.state.todos]
-    let toDoLength = this.state.todos.length
-    const taskObject = { id: toDoLength + 1, task: newTask, done: false }
+    // let toDoLength = this.state.todos.length
+
+    // generate increasing unique values for task id
+    
+    const taskObject = { id: count++ , task: newTask, done: false }
+    console.log(count)
     toDoCopy.push(taskObject)
     this.setState({ todos: toDoCopy })
   }
@@ -60,7 +65,7 @@ class App extends Component {
         <div className='title'> To Do List</div>
         < div className='box' >
 
-          {this.state.todos.map((item, index) =>
+          {this.state.todos.map((item) =>
 
             <div key={item.id}>
               <TodoItem id={item.id} task={item.task} done={item.done} handleClick={this.handleClick} />
