@@ -22,13 +22,13 @@ class App extends Component {
     // generate increasing unique values for task id
 
     const taskObject = { id: count++, task: newTask, done: false }
-    console.log(count)
+    // console.log(count)
     toDoCopy.push(taskObject)
     this.setState({ todos: toDoCopy })
   }
 
   handleClick = (id) => {
-    console.log(this.state.todos)
+    // console.log(this.state.todos)
 
     const toDoCopy = JSON.parse(JSON.stringify(this.state.todos))
     const clickedObject = toDoCopy.find(item => item.id === id)
@@ -49,6 +49,7 @@ class App extends Component {
       todos: toDoCopy
     })
 
+
   }
 
   deleteItem = () => {
@@ -56,6 +57,8 @@ class App extends Component {
     const filteredToDoCopy = toDoCopy.filter(task => task.done === false);
     this.setState({ todos: filteredToDoCopy })
     console.log(filteredToDoCopy)
+
+    
   }
 
 /*   componentWillUnmount() {
@@ -63,6 +66,9 @@ class App extends Component {
   } */
 
   render() {
+    
+    console.table(this.state.todos)
+
     return (
       <>
         <div className='title'> To Do List</div>
@@ -71,7 +77,13 @@ class App extends Component {
           {this.state.todos.map((item, index) =>
 
             <div key={item.id}>
-              <TodoItem id={index + 1} task={item.task} done={item.done} handleClick={this.handleClick} />
+              <TodoItem 
+                index={index}
+                id={item.id} 
+                task={item.task} 
+                done={item.done} 
+                handleClick={this.handleClick} 
+                />
             </div>
 
           )}

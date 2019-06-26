@@ -1,13 +1,13 @@
 import React from 'react'
 
 
-const TodoItem = ({ id, task, done, handleClick }) => {
+const TodoItem = ({ index, id, task, done, handleClick }) => {
     
     //if task is not done, return div
     if (!done) {
         return (
         <div>
-            <span>{id}.{task},{done}</span>
+            <span>{index+1}.{task},{done}</span>
             <input value={done} onClick={() => { handleClick(id) }} type="checkbox"></input>
         </div>
         );
@@ -15,7 +15,7 @@ const TodoItem = ({ id, task, done, handleClick }) => {
         // return strikethrough when task is done
         return (
         <div>
-            <strike className='strikecolor'>{id}.{task},{done}</strike>
+            <strike className='strikecolor'>{index+1}.{task},{done}</strike>
             <input value={done} onClick={() => { handleClick(id) }} type="checkbox"></input>
         </div>
         );
